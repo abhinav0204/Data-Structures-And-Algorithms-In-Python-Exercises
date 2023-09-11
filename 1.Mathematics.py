@@ -282,3 +282,193 @@ if __name__ == '__main__':
         print(f"{n} is a prime number !!")
     else:
         print(f"{n} is not a prime number !! ") """
+
+
+## prime Factorisation
+
+""" def isPrime(x):
+    for i in range(2,x):
+        if x%i == 0:
+            return False
+    return True
+
+def primeFactor(n):
+    for i in range(2,n+1):
+        if isPrime(i):
+            x = i
+            while n%x == 0:
+                print(i,end = ' ')
+                x = x*i
+
+
+
+n = int(input("Enter a number : "))
+primeFactor(n) """
+
+## prime Factorisation - optimsed
+
+""" import math
+
+def primeFactors(n):
+
+    while n%2 == 0:
+        print(2)
+        n = n//2
+
+    for i in range(3,int(math.sqrt(n))+1,2):
+        while n % i == 0 :
+            print(i,end=' ')
+            n = n//i
+
+    if n > 2:
+        print(n)
+
+
+n = int(input("Enter a number : "))
+primeFactors(n) 
+ """
+
+## all divisors of a number
+
+## naive approach o(n)
+
+""" def Divisors(n):
+    for i in range(1,n+1):
+        if n% i == 0:
+            print(i,end=' ')
+
+
+
+n = int(input("Enter a number : "))
+print(f"The divisors of n are ",end =' ')
+Divisors(n) """
+
+## optimised approach -  sqrt(n) --  but not in order
+
+
+""" def Divisors(n):
+    i=1
+    while(i*i<=n):
+        if n % i == 0 :
+            print(i,end=' ')
+        
+            if i != n/i :
+                print(n//i,end = ' ')
+        i+=1
+
+
+
+n = int(input("Enter a number : "))
+print(f"The divisors of n are ",end =' ')
+Divisors(n)
+ """
+
+##  more optimised approach -- sqrt(n) -- in sorted order
+
+""" 
+def Divisors(n):
+    i = 1
+    while(i*i<n):
+        if n%i == 0:
+            print(i,end =' ')  ## divisors from 1 to sqrt(n)
+        i+=1
+
+    while(i>=1):
+        if n % i ==0:
+            print(n//i,end=' ') ## divisors from  sqrt(n) to 1
+        i-=1
+
+n = int(input("Enter a number : "))
+print(f"The divisors of n are ",end =' ')
+Divisors(n)
+
+ """
+
+##  prime numbers 1 to n - optimised approach -  (n*sqrt(n))
+
+""" def isPrime(n):
+
+    if n == 1:
+        return False
+    
+    if n == 2 or n == 3:
+        return True
+    
+    if n% 2 == 0 or n% 3 == 0:
+        return False
+    
+    i = 5
+    while(i*i <= n):
+
+        if n%i == 0 or n% (i+2) == 0 :
+            return False
+        
+        i+=6
+
+    return True
+
+
+def primeCheck(n):
+    for i in range(2,n+1):
+        if isPrime(i):
+            print(i,end=' ')
+
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    primeCheck(n) """
+
+## sieve of eartosthenes - prime numbers - 1 to n - o(n loglog n)
+
+""" 
+def sieve(n):
+
+    if n<= 1:
+        return False
+    
+    isPrime = [True] * (n+1)
+
+    i = 2
+
+    while( i * i <= n):
+        if isPrime[i]:
+            for j in range(2*i, n+1,i):
+                isPrime[j] = False
+
+        i+=1
+
+    for i in range(2,n+1):
+        if isPrime[i]:
+            print(i,end=' ')
+
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    sieve(n)
+ """
+
+## sieve of eartosthenes - optimized - prime numbers - 1 to n - o(n loglog n)
+
+
+def sieve(n):
+
+    if n<=1:
+        return 
+    
+    isPrime = [True] * (n+1)
+    
+    i = 2
+    while i*i <= n:
+        if(isPrime[i]):
+            for j in range(i*i,n+1,i):  ## inly checking the squares of primes
+                isPrime[j] = False
+
+        i+=1
+
+    for i in range(2,n+1):
+        if isPrime[i]:
+            print(i,end=" ")
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    sieve(n)
