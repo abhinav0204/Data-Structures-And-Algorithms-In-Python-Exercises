@@ -450,7 +450,7 @@ if __name__ == '__main__':
 ## sieve of eartosthenes - optimized - prime numbers - 1 to n - o(n loglog n)
 
 
-def sieve(n):
+""" def sieve(n):
 
     if n<=1:
         return 
@@ -471,4 +471,72 @@ def sieve(n):
 
 if __name__ == '__main__':
     n = int(input("Enter a number : "))
-    sieve(n)
+    sieve(n) """
+
+
+# computing power -- power of a number
+
+
+## naive approach -- 0(n)
+
+
+""" def powerOfANumber(n,x):
+
+    pow = 1
+
+    for i in range(x):
+        pow = pow * n
+    return pow
+
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    x = int(input("Enter the power : "))
+    print(powerOfANumber(n,x)) """
+
+
+##  optimised approach -- recursive approach
+
+""" def PowerOfANumber(n,x):
+    if n == 0:
+        return 0
+    
+    if x == 0:
+        return 1
+    
+    temp = PowerOfANumber(n,x//2)
+
+    temp = temp * temp
+    
+    if (x%2 == 0):
+        return temp
+    
+    else:
+        return temp *n
+
+
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    x = int(input("Enter the power : "))
+    print(PowerOfANumber(n,x)) """
+
+## binary expotentiation approach - O (log(n))
+""" 
+def PowerOfANumber(n,x,m):
+    res = 1
+    while x> 0 :
+        if x&1:
+            res = (res*n)%m
+        
+        n =(n*n)%m
+        x =x>>1
+    return res
+
+
+if __name__ == '__main__':
+    n = int(input("Enter a number : "))
+    x = int(input("Enter the power : "))
+    m = (1e9)+7
+    print(PowerOfANumber(n,x,m))
+ """
