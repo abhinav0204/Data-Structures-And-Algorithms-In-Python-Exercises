@@ -540,3 +540,67 @@ if __name__ == '__main__':
     m = (1e9)+7
     print(PowerOfANumber(n,x,m))
  """
+
+ ## absolute value of a number
+""" 
+class Solution:
+    def absolute(self,I):
+        # code here
+        if I < 0 :
+            return -1 * I
+        return I
+
+
+#{ 
+ # Driver Code Starts.
+def main():
+    T = int(input()) #Input the number of testcases
+    while(T > 0):
+        I = int(input()) #input number
+        ob=Solution()
+        print(ob.absolute(I)) #Call function and print
+        T -= 1 #Reduce number of testcases
+
+
+if __name__ == "__main__":
+    main() """
+
+## celsius to fahrenheit program
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+import math
+
+
+# } Driver Code Ends
+#User function Template for python3
+
+class Solution:
+    ##Complete this function
+    def cToF(self,C):
+        #Your code here
+        return (((9/5) * C) +32)
+        
+
+
+#{ 
+ # Driver Code Starts.
+def main():
+    
+    T=int(input())
+    
+    while(T>0):
+        C=int(input())
+        ob=Solution()
+        print(math.floor(ob.cToF(C)))
+        T-=1
+    
+    
+
+
+
+
+if __name__=="__main__":
+    main()
