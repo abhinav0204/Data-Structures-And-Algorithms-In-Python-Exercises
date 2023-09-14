@@ -571,7 +571,7 @@ if __name__ == "__main__":
  # Driver Code Starts
 #Initial Template for Python 3
 
-import math
+""" import math
 
 
 # } Driver Code Ends
@@ -604,3 +604,27 @@ def main():
 
 if __name__=="__main__":
     main()
+ """
+
+
+ ## number of digits in a factorial
+
+ ## basic approach - O (n) - time and space complexity
+""" 
+def countDigitsInFactorial(num):
+    fact = 1
+    for i in range(1,num+1):
+        fact = fact*i
+
+    count = 0
+    while fact > 0:
+        count+=1
+        fact = fact//10
+    
+    return count
+
+if __name__ == '__main__':
+    num = int(input("Enter a number : "))
+    print(countDigitsInFactorial(num))
+
+ """
