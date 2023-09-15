@@ -214,7 +214,7 @@ if __name__ == '__main__':
 
 """ def isPrime(n):
     if n == 1:
-        return False
+    turn False
     
     for i in range(2,n):
         if n% i == 0:
@@ -628,3 +628,140 @@ if __name__ == '__main__':
     print(countDigitsInFactorial(num))
 
  """
+
+## logrithmic approach - nlogn - time compelxity
+""" 
+import math
+
+def findDigits(n):
+  
+  if n < 0 :
+    return 0
+  
+  if n<=1:
+    return 1
+  
+  digits = 0
+  for i in range(2,n+1):
+    digits += math.log10(i)
+
+  return math.floor(digits)+1
+
+if __name__ == "__main__":
+  n = int(input("Enter a number : "))
+  print(findDigits(n)) """
+
+
+## stirilng's formula -- time complexity - 1 
+
+""" import math
+
+def countDigitsInFactorial(n):
+
+    if n < 0:
+        return 0
+    
+    if n<= 1:
+        return 1
+    
+    digits =  math.floor(0.5 * math.log10(2 * math.pi * n) + n * math.log10(n/math.e)) + 1
+
+    return digits
+
+if __name__ == '__main__':
+    n = int(input("Enter a number: "))
+    print(countDigitsInFactorial(n))
+
+ """
+
+
+## count number of primes
+
+# Prime Generation: O(N log(log N))
+# Counting Primes: O(√N)
+# Overall Time Complexity: O(N log(log N))
+""" 
+def numbersWithDivisors(N):
+
+    prime = [True] * (N+1)
+    prime[0] = prime[1] = False
+    p = 2
+    while(p * p <= N):
+
+        if (prime[p] == True):
+
+            for i in range(p*2,N+1,p):
+                prime[i] = False
+
+        p+=1
+
+    i = 0
+    while(i*i <= N):
+        if prime[i]:
+            print(i*i,end=' ')
+        i+=1
+
+if __name__ == '__main__':
+    num = int(input("Enter a number : "))
+    numbersWithDivisors(num) """
+
+## count number of primes - optimised
+
+# Prime Generation: O(√N log(log √N)) = O(√N log(log N))
+# Counting Primes: O(√N)
+# Overall Time Complexity: O(√N log(log N))
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+""" 
+import math
+
+
+# } Driver Code Ends
+#User function Template for python3
+
+class Solution:
+    def exactly3Divisors(self,N):
+        # code here
+        # Optimized Sieve of Eratosthenes
+        def sieve_of_eratosthenes(N):
+            is_prime = [True] * (N+1)
+            is_prime[0] = is_prime[1] = False
+            p = 2
+            while (p * p <= N):
+                if is_prime[p]:
+                    for i in range(p * 2, N+1, p):
+                        is_prime[i] = False
+                p += 1
+            return is_prime
+
+        # Generate a list of primes up to sqrt(N)
+        primes = sieve_of_eratosthenes(int(N**0.5))
+
+        # Count primes
+        count = sum(primes)
+
+        return count
+
+#{ 
+ # Driver Code Starts.
+def main():
+    
+    T=int(input())
+    
+    while(T>0):
+        
+        N=int(input())
+        ob=Solution()
+        print(ob.exactly3Divisors(N))
+        
+        T-=1
+    
+
+if __name__=="__main__":
+    main()
+# } Driver Code Ends """
+
+
