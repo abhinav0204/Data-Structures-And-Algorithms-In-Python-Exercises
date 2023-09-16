@@ -765,3 +765,94 @@ if __name__=="__main__":
 # } Driver Code Ends """
 
 
+## program to find the roots of a quadratic equation
+
+""" import math
+
+def findRoots(a,b,c):
+
+    if a == 0:        # If a is 0, then equation is not quadratic, but linear
+        print("Invalid")
+        return -1
+    
+    
+    d = b*b - 4 *a*c
+    sqrt_val = math.sqrt(abs(d))
+
+    if d> 0 :
+        print(math.floor((-b +sqrt_val)/(2*a)),end=' ')
+        print(math.floor((-b - sqrt_val)/(2*a)))
+
+
+    elif d == 0:
+        print(math.floor(-b/(2*a)),end=' ')
+        print(math.floor(-b/(2*a)))
+
+
+    else: 
+        print(math.floor((-b+sqrt_val)/(2*a)))
+        print(math.floor((-b+sqrt_val)/(2*a)))
+
+
+
+
+
+if __name__ == '__main__':
+    num1 = int(input("Enter the first number : "))
+    num2 = int(input("Enter the second number : "))
+    num3 = int(input("Enter the third number : "))
+    findRoots(num1,num2,num3) """
+
+
+
+
+## program to find the roots of a quadratic equation
+
+# sorted order of outputs in ascending order
+
+import math
+class Solution:
+    def quadraticRoots(self, a, b, c):
+        if a == 0:        # If a is 0, then equation is not quadratic, but linear
+            return ['Imaginary']
+    
+    
+        d = b*b - 4 *a*c
+        sqrt_val = math.sqrt(abs(d))
+
+        if d> 0 :
+            root1 = math.floor((-b + sqrt_val)/(2*a)) 
+            root2 = math.floor((-b - sqrt_val)/(2*a))
+            return [max(root1, root2), min(root1, root2)]
+
+        elif d == 0:
+            root = math.floor(-b/(2*a))
+            return [root , root]
+
+
+        else: 
+            return ['Imaginary']
+
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__':
+    tc = int(input())
+    for _ in range(tc):
+        abc=[int(x) for x in input().strip().split()]
+        a=abc[0]
+        b=abc[1]
+        c=abc[2]
+        ob = Solution()
+        ans = ob.quadraticRoots(a,b,c)
+        if len(ans)==1 and ans[0]==-1:
+            print("Imaginary")
+        else:
+            for i in range(len(ans)):
+                print(ans[i], end=" ")
+            print()
+
+# } Driver Code Ends
