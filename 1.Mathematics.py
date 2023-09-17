@@ -810,7 +810,7 @@ if __name__ == '__main__':
 
 # sorted order of outputs in ascending order
 
-import math
+""" import math
 class Solution:
     def quadraticRoots(self, a, b, c):
         if a == 0:        # If a is 0, then equation is not quadratic, but linear
@@ -854,5 +854,27 @@ if __name__ == '__main__':
             for i in range(len(ans)):
                 print(ans[i], end=" ")
             print()
-
+ """
 # } Driver Code Ends
+
+
+## GP Term 
+
+## naive approach - (a.r^n-1)
+
+import math
+
+def nth_term_of_gp(A,B,N):
+    R1 = (B/A)
+    return math.floor(A*R1**(N-1))
+
+
+if __name__ == '__main__':
+    A = int(input("Enter the value of a : "))
+
+    B = int(input("Enter the second  term of GP : "))
+
+    N = int(input("Enter the value of N : "))
+
+    print(nth_term_of_gp(A,B,N))
+
