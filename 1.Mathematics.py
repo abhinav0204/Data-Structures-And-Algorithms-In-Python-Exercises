@@ -861,7 +861,7 @@ if __name__ == '__main__':
 ## GP Term 
 
 ## naive approach - (a.r^n-1)
-
+""" 
 import math
 
 def nth_term_of_gp(A,B,N):
@@ -878,3 +878,35 @@ if __name__ == '__main__':
 
     print(nth_term_of_gp(A,B,N))
 
+ """
+
+# Addition Under Modulo using modulo 10**9+7
+
+""" def sum_of_two_large_numbers(A,B):
+    return (A + B)%(10**9+7)
+
+
+if __name__ == '__main__':
+    A = int(input("Enter the value of a : "))
+
+    B = int(input("Enter the value of b :  "))
+
+    print(sum_of_two_large_numbers(A,B)) """
+
+
+# Multiplication Under Modulo using modulo 10**9+7
+""" 
+def sum_of_two_large_numbers(A,B):
+    return (A * B)%(10**9+7)
+
+
+if __name__ == '__main__':
+    A = int(input("Enter the value of a : "))
+
+    B = int(input("Enter the value of b :  "))
+
+    print(sum_of_two_large_numbers(A,B))
+
+ """
+
+ 
