@@ -356,7 +356,7 @@ print(largest(l)) """
 # Second largest element in a list
 
 # Naive approach - O(n)
-
+""" 
 def getMax(l):
     res = l[0]
     for i in range(1,len(l)):
@@ -383,7 +383,7 @@ def second_largest(ex_list):
     return second_largest
 
 ex_list = [5,20,12,10,20,10,12]
-print(second_largest(ex_list))
+print(second_largest(ex_list)) """
 
 
 # first approach - O (nlogn)
@@ -566,7 +566,9 @@ print(reverse_list(l))  """
 
 # remove duplicates from sorted array - Important
 
-def remove_duplicates(arr,n):
+# time complexity - O(n) and space complexity - O(n)
+
+""" def remove_duplicates(arr,n):
     temp = [0] * n
     temp[0] = arr[0]
     res = 1
@@ -581,3 +583,312 @@ def remove_duplicates(arr,n):
 arr = [10,20,20,30,30,30,30]
 n = len(arr)
 print(remove_duplicates(arr,n))
+ """
+
+#  Approach - time complexity -  2 O(n), space complexity - O(1)
+
+""" def remove_duplicates(arr,n):
+    res = 1
+    for i in range(1,n):
+        if arr[res-1] != arr[i]:
+            arr[res] = arr[i]
+            res+=1
+    
+    return res
+    
+        
+arr = [10,20,20,30,30,30,30]
+n = len(arr)
+print(remove_duplicates(arr,n)) """
+
+
+# Left rotate a list by one
+
+# Using Direct Methoda
+
+""" l = [10,20,30,40]
+
+# using list slicing
+
+l = l[1:] + l[0:1]
+print(l)
+
+# append method
+
+l = [10,20,30,40]
+ 
+l.append(l.pop(0))
+print(l) """
+
+# manual approach  time complexity - 0(n) , space complexity - O (1)
+""" 
+def rotateByOne(l):
+    n = len(l)
+    x = l[0]
+
+    for i in range(1,n):
+        l[i-1] = l[i]
+
+    l[n-1] = x
+
+l = [10,20,30,40]
+rotateByOne(l)
+print(l)
+
+ """
+
+# time complexity - O(n) and space complexity - O(n)
+
+
+""" def rotate(L,d,n):
+    # Ensure d is within the length of the list
+    d = d%n
+    new_list = L[d:] + L[:d]
+    return new_list
+
+
+arr = [1,2,3,4,5,6,7]
+d = 2
+N = len(arr)
+new_arr = rotate(arr,d,N)
+print(new_arr)
+
+
+
+list_container = [10,20,30,40]
+list_container += [10]
+print(list_container)
+
+ """
+
+
+
+# Remove Duplicates - O(n)
+
+""" 
+def removeDuplicates(arr, n):
+
+    if n==0 or n==1:
+          return n
+    
+    j=0
+    temp = [0]*n
+
+    for i in range(0,n-1):
+          if arr[i] !=arr[i+1]:
+                temp[j] = arr[i]
+                j+=1
+
+    temp[j] = arr[n-1]
+    j+=1
+
+    for i in range(0,j):
+          arr[i] = temp[i]
+
+    return j
+# Driver code
+arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+n = len(arr)
+
+# removeDuplicates() returns
+# new size of array.
+n = removeDuplicates(arr, n)
+
+# Print updated array
+for i in range(n):
+	print ("%d"%(arr[i]), end = " ")
+	
+ """
+
+
+
+# Approach -2 Time Complexity - O(n) and Space Complexity - O(1)
+
+""" 
+def removeDuplicates(arr,n):
+	
+    if n==0 or n==1:
+          return n
+    
+
+    j = 0
+    
+    for i in range(0,n-1):
+          if arr[i] != arr[i+1]:
+                arr[j]=arr[i]
+                j+=1
+    arr[j] = arr[n-1]
+    j+=1
+    return j
+    
+
+
+arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+
+n = len(arr)
+
+
+# removeDuplicates() returns
+# new size of array.
+n = removeDuplicates(arr, n)
+
+# Print updated array
+for i in range(n):
+	print ("%d"%(arr[i]), end = " ") """
+
+""" 
+
+def removeDuplicates(arr, n):
+
+    if n==0 or n==1:
+          return n
+    
+    
+    j=0
+    
+    for i in range(1,n):
+          if arr[i]!=arr[j]:
+                j+=1
+                arr[j]=arr[i]
+
+
+    return j+1
+# Driver code
+arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+n = len(arr)
+
+# removeDuplicates() returns
+# new size of array.
+n = removeDuplicates(arr, n)
+
+# Print updated array
+for i in range(n):
+	print ("%d"%(arr[i]), end = " ")
+       """
+
+""" def removeDuplicates(arr, n):
+
+    if n==0 or n==1:
+          return n
+    
+    
+    temp = [0]*n
+
+    j = 0
+    temp[j] = arr[0]
+
+    for i in range(1,n):
+          if temp[j] !=arr[i]:
+                j+=1
+                temp[j] =arr[i]
+    j= j+1
+    for i in range(0,j):
+          arr[i]= temp[i]
+    return j
+
+
+    return j+1
+# Driver code
+arr = [1, 2, 2, 3, 4, 4, 4, 5, 5,6]
+n = len(arr)
+
+# removeDuplicates() returns
+# new size of array.
+n = removeDuplicates(arr, n)
+
+# Print updated array
+for i in range(n):
+	print ("%d"%(arr[i]), end = " ")
+      """ 
+
+# One odd ocurring 
+
+# Approach 1 - Time complexity - O(n^2)
+
+""" def getOddOccurrence(arr, arr_size):
+	
+    for i in range(0,arr_size):
+        count=0
+        for j in range(0,arr_size):
+             if arr[i]==arr[j]:
+                count+=1
+    
+        if count%2!=0:
+            return (arr[i])
+                
+    return -1    
+		
+	
+	
+# driver code
+arr = [2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2 ]
+n = len(arr)
+print(getOddOccurrence(arr, n))
+ """
+
+# Approach 1 - Time complexity - O(1)
+
+""" 
+def getOddOccurrence(arr, arr_size):
+    
+    res = 0
+    for i in range(arr_size):
+        res = res ^ arr[i]
+
+    return res
+
+
+# driver code
+arr = [2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2 ]
+n = len(arr)
+print(getOddOccurrence(arr, n)) """
+
+# find the missing number in range 1 to n
+
+# First Approach - O(n)
+
+""" 
+def missing_number(arr,n):
+    n = max(arr)
+    total = int(n*(n+1)/2)
+    return total -sum(arr)
+
+
+# driver code
+arr = [1,2,4,5,6,7]
+n = len(arr)
+print(missing_number(arr, n)) """
+
+
+# Second Approach - O(1)
+""" 
+def missing_number(arr,n):
+    n = max(arr)
+    total = int(n*(n+1)/2)
+    return total -sum(arr)
+
+
+# driver code
+arr = [1,2,4,5,6,7]
+n = len(arr)
+print(missing_number(arr, n)) """
+
+
+
+def rotate_array(l):
+
+    n = len(l)
+    x = l[0]
+    for i in range(1,n):
+        l[i-1] = l[i]
+    
+    l[n-1] = x
+
+    return l
+
+
+    
+
+l = [10,20,30,40]
+l1 = rotate_array(l)
+print(l1)
