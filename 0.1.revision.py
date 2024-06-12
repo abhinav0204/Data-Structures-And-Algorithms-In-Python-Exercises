@@ -481,4 +481,69 @@ l = [10,20,30,40]
 print(average(l)) """
 
 # seperate even or odd
+""" 
+l = [10,41,30,15,80]
 
+def getEvenOdd(l):
+    even = []
+    odd = []
+
+    for x in l:
+        if x % 2 == 0:
+            even.append(x)
+        
+        else:
+             odd.append(x)
+
+    return even,odd
+
+l = [10,12,11,16]
+
+even,odd = getEvenOdd(l)
+print(even,odd) """
+
+
+# Get smaller elements
+
+""" def getSmaller(l,x):
+    res = []
+    for ele in l:
+        if ele < x:
+            res.append(ele)
+    return res
+
+l = [8,100,20,40,3,7]
+x = 10
+print(getSmaller(l,x)) """
+
+# Slicing (List, Tuple, String)
+
+""" l = [10,20,30,40,50]
+
+print(l[0:5:2])
+
+print(l[:4])
+
+print(l[2:])
+
+print(l[4:1:-1])
+
+print(l[-1:-6:-1])
+
+print(l[::-1]) """
+
+l1 = [10,20,30]
+l2 = l1[:]
+
+print(l1 is l2) # False - refers to different object as list are mutable
+
+
+t1 = (10,20,30)
+t2 = t1[:]
+
+print(t1 is t2) # True - refers to same object as tuples are immutable
+
+s1 = "geeks"
+s2 = s1[:]
+
+print(t1 is t2) # True - refers to same object as strings are immutable
