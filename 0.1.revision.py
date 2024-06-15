@@ -532,7 +532,7 @@ print(l[-1:-6:-1])
 
 print(l[::-1]) """
 
-l1 = [10,20,30]
+""" l1 = [10,20,30]
 l2 = l1[:]
 
 print(l1 is l2) # False - refers to different object as list are mutable
@@ -547,3 +547,309 @@ s1 = "geeks"
 s2 = s1[:]
 
 print(t1 is t2) # True - refers to same object as strings are immutable
+ """
+
+# list comprehension
+
+""" 
+l1 = [x for x in range(11) if x%2 ==0]
+print(l1)
+
+l2 = [ x for x in range(11) if x %2 !=0]
+print(l2)
+
+even = []
+odd = []
+even_odd_list = [even.append(x) if x %2 ==0  else odd.append(x) for x in range(11) ]
+
+print(even,odd)
+
+l = [3,6,13,16,10,20,30,40,60,80,100]
+smaller_than_x = [e for e in l if e < 20]
+
+print(smaller_than_x) """
+
+""" 
+s = "geeksforgeeks"
+
+l1 = [x for x in s if x in "aeiou"]
+
+print(l1)
+
+l2 = ["geeks","ide","courses","gfg"]
+l3 = [x for x in l2 if x.startswith("g")]
+print(l3)
+
+l4 = [x*2 for x in range(6)]
+print(l4)
+
+# set comprehension
+
+l = [10,20,3,4,10,20,7,3]
+
+s1 = {x for x in l if x %2==0}
+s2 = {x for x in l if x %2 != 0}
+
+print(s1)
+print(s2)
+
+# disctionary comprehension
+
+l1 = [1,3,4,2,5]
+d1 = {x:x**3 for x in l1}
+
+print(d1)
+
+d2 = {x:f"ID{x}" for x in range(5)}
+print(d2)
+
+l2 = [101,103,102]
+l3 = ["gfg","ide","courses"]
+
+d3 = {l2[i]:l3[i] for i in range(len(l2))}
+print(d3)
+
+# create dict from two lists - zip method
+
+l2 = [101,103,102]
+l3 = ["gfg","ide","courses"]
+
+d3 = dict(zip(l2,l3))
+print(d3) """
+
+# dictionary comprehension
+
+# Inventing a dictionary ( key becomes value and value becomes key)
+""" 
+d1 = {'101':"gfg",103:"pratice","102":"ide"}
+d2 = {v:k for  (k,v) in d1.items()}
+
+print(d2) """
+
+
+# Largest element in a list
+
+""" l = [10,5,20,8]
+print(l)
+
+l = [30,30,20]
+print(max(l))
+ """
+
+# naive approach - O(n^2)
+
+""" def getMax(l):
+    for x in l:
+        for y in l:
+            if y>x:
+                break
+        else:
+            return x
+        
+    return None
+
+list1 = [10,20,5,50]
+print(getMax(list1))
+
+
+ """
+
+# modified approach - O(n)
+
+""" 
+def getMax(l):
+    if not l:
+        return None
+    
+    else:
+        res = l[0]
+        for i in range(1,len(l)):
+            if l[i] > res:
+                res = l[i]
+
+        return res
+
+l = [20,10,14,50,30,50,60]  
+print(getMax(l))
+
+ """
+
+## second largest element in list
+
+# naive approach - O(n)
+# two traversals
+
+""" 
+def getMax(l):
+    res = l[0]
+    for i in range(1,len(l)):
+        res = max(res,l[i])
+    return res
+
+def getSecMax(l):
+    if len(l)<=1:
+        return None
+    
+    larg = getMax(l)
+    slarg = None
+
+    for x in l:
+        if x!= larg:
+            if slarg == None:
+                slarg = x
+
+            else:
+                slarg = max(slarg,x)
+
+    return slarg
+
+
+l = [5,20,12,10,20,10,12]
+print(getSecMax(l)) """
+
+
+# advanced approach - O(n)
+""" 
+def getSecMax(l):
+    if len(l) <=1:
+        return None
+    
+    larg = l[0]
+    slarg = None
+
+    for i in range(1,len(l)):
+        if i > larg:
+            larg = l[i]
+            slarg = larg
+
+        elif i != larg:
+            if slarg == None or l[i] > slarg:
+                slarg = l[i]
+
+    return slarg
+
+l = [5,20,12,10,20,10,12]
+print(getSecMax(l)) """
+
+# Check if list is sorted or not
+
+#Method 1 ( Traverse using loops)
+""" 
+def isSorted(l):
+    i=0
+    while i < len(l)-1:
+        if l[i]  >  l[i+1]:
+            return False
+        
+        i+=1
+
+    return True
+
+l = [5,20,12,10,20,10,12]
+print(isSorted(l))
+ """
+""" 
+# Method 2 - Sorted function
+
+def isSorted(l):
+    return l == sorted(l)
+
+l = [5,20,12,10,20,10,12]
+print(isSorted(l)) """
+
+## Reverse a list 
+
+# library methods
+
+""" l = [10,20,30]
+
+l.reverse()
+print(l)
+
+l = [10,20,30]
+
+new_list = list(reversed(l))
+print(new_list)
+
+l = [10,20,30]
+
+new_list = l[::-1]
+print(new_list) """
+
+
+""" 
+def reverse_list(l):
+    start = 0
+    end = len(l)-1
+
+    while(start < end):
+        l[start],l[end] = l[end],l[start]
+        start+=1
+        end-=1
+
+    return l
+
+l = [5,20,12,10,20,10,12]
+print(reverse_list(l)) 
+
+ """
+
+## Remove duplicates from a sorted array
+
+# naive approach
+# time complexity - O (n)
+# space complexity - O (n)
+""" 
+def removedup(arr,n):
+    temp = [0] * n
+    temp[0] = arr[0]
+    res = 1
+
+    for i in range(1,n):
+        if temp[res-1] != arr[i]:
+            temp[res] = arr[i]
+            res+=1
+
+    for i in range(0,res):
+        arr[i]= temp[i]
+
+    return res
+
+l = [10,20,20,30,30,30,30]
+print(removedup(l,len(l))) 
+
+ """
+
+
+# naive approach
+# time complexity - O (n)
+# space complexity - O (n)
+
+
+""" 
+def removedup(arr,n):
+    res=1
+    for i in range(1,n):
+        if arr[res-1] != arr[i]:
+            arr[res] = arr[i]
+            res+=1
+
+    return res            
+
+l = [10,20,20,30,30,30,30]
+print(removedup(l,len(l))) 
+ """
+
+# Left rotate a  list by one
+
+# using direct methods
+""" 
+l = [10,20,30,40]
+l = l[1:] + l[0:1]
+print(l)
+
+
+l = [10,20,30,40]
+l.append(l.pop(0))
+print(l) """
+
