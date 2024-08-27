@@ -122,7 +122,7 @@ print(maxdiff(arr,n)) """
 
 # time complexity -- o(n)
 # space complexitty - o(1)
-""" 
+
 def maxprofit(price,n):
     profit = 0
     for i in range(1,n):
@@ -132,8 +132,7 @@ def maxprofit(price,n):
     return profit
 price = [1,5,3,8,12]
 n = len(price)
-print(maxprofit(price,n)) """
+print(maxprofit(price,n)) 
 
 
 # trapping rainwater problem
-

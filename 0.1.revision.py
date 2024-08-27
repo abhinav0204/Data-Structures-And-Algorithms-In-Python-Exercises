@@ -868,3 +868,205 @@ def rotateByOne(l):
 
 l = [10,20,30,40]
 print(rotateByOne(l)) """
+
+# revision
+
+# recursion - a function calling itself recursively
+
+""" def fun(n):
+    if n == 1:
+        return 
+    
+    print("GFG",n)
+    fun(n-1)
+
+fun(5)
+ """
+
+# many algorithms techniques are based on recursion
+# dynamic programming
+# backtracking
+# divide and conquer (binary search,quick sort, merge sort)
+
+# many problems inherently recursive
+# tower of hanoi
+# dfs level traversal()
+# tower of hanoi
+# DFS based traversals (DFS of graph and  inorder/preorder/postorder traversal of tree)
+
+
+# Writing base cases in recursion
+
+""" 
+def fibo(n):
+    if n==0:
+        return 0
+
+    if n == 1:
+        return 1
+    
+    a,b=0,1
+    
+    for i in range(n):
+        c = a+b
+        print(c," ",a," ",b)
+        a=b
+        b=c
+
+fibo(5) """
+
+
+""" def fibo(n):
+    if n==0:
+        return 0
+
+    if n == 1:
+        return 1
+    
+    a,b=0,1
+    
+    for i in range(2,n+1):
+        a,b = b,a+b
+
+    return b
+
+print(fibo(5)) """
+
+""" def fibo(n):
+    if n <= 0 :
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibo(n-1)+fibo(n-2)
+
+print(fibo(5))
+     """
+
+""" def factorial(n):
+    if n == 0:
+        return 1
+    return n*factorial(n-1)
+
+print(factorial(5)) """
+
+# tail recursion
+
+# a recursive function is called tail recursive if the function does not do anything after the last recursive call
+
+""" def func(n):
+    if n == 0:
+        return
+    print(n,end=' ')
+
+    func(n-1)
+
+func(5) """
+
+# example of tail recursive alogrithms
+## quick sort
+## post order tree traversal
+
+# practice for recursion - part 1
+
+""" 
+def fun(n):
+    if n == 0:
+        return
+    
+    print(n)
+    fun(n-1)
+    print(n)
+
+fun(5) """
+
+
+
+""" def func(n):
+    if n ==0 :
+        return
+    func(n-1)
+    print(n)
+    func(n-1)
+
+func(3) """
+
+# practise for recursion -> part 2
+""" 
+def func(n):
+    if n <=1:
+        return 0
+    else:
+        return 1 + func(n//2)
+    
+print(func(16)) """
+
+# print 1 to N Recursion in python
+""" 
+def print1toN(n):
+    if n==0:
+        return
+    
+    print1toN(n-1)
+    print(n)
+
+
+print1toN(3) """
+
+# print N to 1 Recursion in python
+
+""" 
+def printNto1(n):
+    if n == 0:
+        return
+    
+    print(n)
+    printNto1(n-1)
+
+printNto1(5) """
+
+
+""" def sumOfNdigits(n):
+
+    total_sum = 0
+    while n>0:
+        rem = n%10
+        total_sum = total_sum + rem
+        n = n//10
+    return total_sum
+
+
+print(sumOfNdigits(253))
+
+ """
+
+""" 
+def sumOfNdigits(n):
+    if n < 10:
+        return n
+    
+    return sumOfNdigits(n//10) + n%10
+
+
+print(sumOfNdigits(253)) """
+
+# palindrome check
+
+""" def  isPalindrome(str,start,end):
+    if start >=end:
+        return True
+    
+    return (str[start] == str[end] and isPalindrome(str,start+1,end-1))
+
+
+sample_string = "madam"
+print(isPalindrome(sample_string,0,len(sample_string)-1)) """
+
+def theSequence(n):
+    if n == 0:
+        return 1
+    else:
+        return n + n * theSequence(n - 1) 
+
+
+print(theSequence(2))

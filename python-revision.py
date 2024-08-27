@@ -1713,4 +1713,666 @@ print("Decrypted message:", decrypted_message)
 # day 41
 
 # short hand if else
+""" 
+a = 3300000
+b = 3304
+print("A") if a>b else print("=") if a == b else print("B")
+
+c = 9 if a>b else 0
+print(c) """
+
+
+# day 42
+
+# enumerate function
+# to get the index,value over a sequence (such as list,tuple or string)
+# we are using enumerate
+# returns a tuple containing the index and value of each element in the sequence
+""" 
+fruits = ['apple','banana','mango']
+
+for index,fruits in enumerate(fruits):
+    print(index,fruits)
+
+marks = [12,4,56,23,100,87,45,36,78,88]
+
+# without enumerate - explicitly defining index
+
+index = 0
+for mark in marks:
+    if index == 4:
+        print("Abhinav, awesome !!")
+    index+=1
+
+
+# with enumerate 
+
+for index,mark in enumerate(marks):
+    
+    if index == 4:
+        print(f"Abhinav is the topper and his marks is {mark} !!")
+    else:
+        print(index,mark)
+     """
+# you can explicitly define the enumerate starting point as -1
+# which is basically the starting point of index
+
+""" marks = [12,4,56,23,100,87,45,36,78,88]
+
+
+for index,mark in enumerate(marks,start=1):
+    
+    if index == 4:
+        print(f"Abhinav is the topper and his marks is {mark} !!")
+    else:
+        print(index,mark) """
+
+
+# virtual env in python
+
+# virtual env - a tool used to isolate specific python env in a machine
+# allowing you to work on multiple projects with different dependencies and package without conflict
+
+# used in projects where we can have conflicting python version or packages
+# that are incompatible with each other
+
+
+# requrirements.txt -> list of packages and their version which your software depend on
+
+""" 
+import pandas as pd
+import sys
+print(pd.__version__)
+print(sys.version) """
+
+
+# pip freeze - > list all packages installed along with their version
+
+# pip freeze > requirements.txt -> list of packages and their version in your environment
+
+# pip install -r requirements.txt -> install all list of packages of the mentioned version in requirements.txt
+
+
+# day 44
+
+# import in python -loading code from a python module into the current script
+
+""" 
+import math as math_builtin_python
+
+result = math_builtin_python.sqrt(9)*math_builtin_python.pi
+print(result)
+ """
+
+
+# os module
+
+
+""" 
+import os
+
+
+if not os.path.exists("data") :
+    os.makdir("data")
+
+for i in range(0,10):
+    os.mkdir(f"data/Day{i+1}")
+
+for i in range(0,10):
+    os.renamw(f"date/Day{i+1}",f"data/Tutorial{i+1}")
+
+import os
+folders = os.listdir("data")
+
+for folder in folders:
+    print(os.listdir(f"data/{folder}"))
+
+print(os.getcwd()) """
+
+
+# day 47
+
+# Write a python program to translate a message into secret code language. Use the rules below to translate normal English into secret code language
+
+# Coding:
+# if the word contains atleast 3 characters, remove the first letter and append it at the end
+#   now append three random characters at the starting and the end
+# else:
+#   simply reverse the string
+
+# Decoding:
+# if the word contains less than 3 characters, reverse it
+# else:
+#   remove 3 random characters from start and end. Now remove the last letter and append it to the beginning
+# Your program should ask whether you want to code or decode
+""" 
+
+
+import random
+import string
+
+def get_random_string(length):
+    return ''.join(random.choices(string.ascii_letters + string.digits , k = length))
+
+st = input("Enter Message : ")
+coding = input("1 for Coding or 0 for Decoding : ")
+coding = True if coding =="1" else False
+words = st.split(" ")
+
+if coding :
+    nwords = []
+    for word in words:
+        if (len(word)>=3):
+            r1 = get_random_string(3)
+            r2 = get_random_string(3)
+
+            stnew = r1+ word[1:] + word[0] + r2
+            nwords.append(stnew)
+
+        else:
+            nwords.append(word[::-1])
+
+    print(' '.join(nwords))
+
+else:
+    nwords = []
+    for word in words:
+        if len(word)>=3:
+            stnew = word[3:-3]
+            stnew = stnew[-1] + stnew[:-1]
+            nwords.append(stnew)
+
+        else:
+            nwords.append(word[::-1])
+
+    print(" ".join(nwords))
+
+ """
+
+
+# day 48
+
+# local and global variable
+
+""" x = 4
+print(x)
+
+def hello():
+    x = 5
+    print(f"The local x is {x}")
+    print("Hello Abhinav")
+
+
+print(f"The global x is {x}")
+hello()
+print(f"The global x is {x}") """
+
+# to change the gobal variable inside the function we use global keyword
+
+""" x = 4
+print(x)
+
+def hello():
+    global x 
+    x+=6
+    print(f"The local x is {x}")
+    print("Hello Abhinav")
+
+
+print(f"The global x is {x}")
+hello()
+print(f"The global x is {x}") """
+
+# FILE IO Operation
+
+""" 
+f =  open('myfile.txt','rb')
+print(f)
+text = f.read()
+print(text)
+f.close() """
+
+""" 
+f =  open('myfile.txt','rb')
+print(f)
+text = f.read()
+print(text)
+f.close() """
+
+
+""" 
+f = open('myfile.txt','a')
+f.write(' Hello World !!')
+f.close() """
+
+""" f =  open('myfile.txt','rb')
+print(f)
+text = f.read()
+print(text)
+f.close()  """
+
+# with open - don't need to close the file
+""" 
+with open('myfile.txt','a') as f:
+    f.write("Hey I am inside with !!")
+
+
+with open('myfile.txt','r') as f:
+    text = f.read()
+    print(text) """
+
+# day 50
+
+""" f = open('myfile.txt','r')
+while True:
+    line = f.readline()
+    print(line)
+    if not line:
+        break """
+
+""" f = open('myfile.txt','a')
+lines = ['line 1\n', 'line 2\n', 'line 3\n']
+f.writelines(lines)
+f.close() """
+
+# day 51
+
+# seek , tell and other functions
+
+""" with open('myfile.txt','r') as f:
+
+    print(type(f))
+
+    f.seek(10)
+    # tell at which position the seeked pointer is
+    print(f.tell())
+    # read next 5 bytes
+    data = f.read(5)
+    print(data) """
+
+""" 
+with open('sample.txt','w') as f:
+    f.write('Hello World !')
+    # truncate the text after 5th position
+    f.truncate(5)
+
+with open('sample.txt','r') as f:
+    print(f.read())
+ """
+
+# Day-52 Lambda Functions
+
+""" def double(x):
+    return x*2
+
+print(double(5)) """
+
+""" double = lambda x:x*2
+cube = lambda x:x**3
+avg = lambda x,y,z:(x+y+z)/3
+
+print(double(5))
+print(cube(20))
+print(avg(20,30,50))
+ """
+# passing function to a function
+
+""" def appl(fx,value):
+    return 6 + fx(value) """
+
+""" appl = lambda fx,value:value + fx(value)
+
+print(appl(cube,2))
+ """
+
+
+""" 
+def appl(fx,value):
+    return 6 + fx(value)
+
+print(appl(lambda x:x*x*x,2)) # cube replaced with lambda x:x*x*x
+
+ """
+
+# Map,filter and reduce
+
+""" l = [1,2,3,4,6,4,3]
+newl = []
+for item in l:
+    newl.append(cube(item))
+
+print(newl) """
+
+
+# higher order function - function that takes other function as arg
+#  higher order fns example - map,filter,reduce
+
+""" 
+l = [1,2,3,4,6,4,3,8,10]
+
+map_list = list(map(cube,l))
+
+print(map_list)
+
+filter_list = list(filter(lambda x:x>4,l))
+print(filter_list)
+
+
+from functools import reduce
+
+numbers = [1,2,3,4,5]
+
+reduce_function = reduce(lambda x,y:x+y, numbers)
+
+print(reduce_function)
+ """
+
+# Day-52 'is' vs '=='
+
+# both are comparison opperation
+
+# is - compares exact location of object in memory
+# == - compares values of two objects
+
+""" a = 4
+
+b = "4"
+
+print(a is b) # compares location
+
+print(a == b) # compares value """
+
+# constants like tuple,variables,bool values like None when made again and again will be allocated same memory
+
+""" a = 3
+
+b = 3
+
+print(a is b) # compares location
+
+print(a == b) # compares value
+
+ """
+
+# list when made again and again will be allocated different memory
+
+""" a = [1,2,43]
+
+b = [1,2,43]
+
+print(a is b) # compares location
+
+print(a == b) # compares value """
+
+# Day - 55 Exercise - Snake Water Gun
+""" 
+import numpy as np
+
+# define the game matrix
+
+game_matrix = np.array([
+    [0, 1, -1], # Snake
+    [-1, 0, 1], # Water
+    [1, -1, 0] # Gun
+])
+
+
+def play_game(player1, player2):
+    try:
+        choices = {'snake':0,'water':1,'gun':2}
+        player1_index = choices[player1]
+        player2_index = choices[player2]
+
+        # determine the winner
+
+        result = game_matrix[player1_index,player2_index]
+
+        # priting the result
+
+        if result ==1:
+            print(f"{player1.capitalize()} wins !!")
+
+        elif result == -1:
+            print(f"{player2.capitalize()} wins !!")
+            
+        else:
+            print("It is a draw")
+
+    except KeyError :
+        print("The entered value is invalid !! Try Again !!")
+
+# Get player inputs
+player1 = input("Enter Player 1's choice (snake, water, gun): ").lower()  # Assume input "gun"
+player2 = input("Enter Player 2's choice (snake, water, gun): ").lower()  # Assume input "water"
+
+# Play the game
+play_game(player1,player2)
+ """
+#Day #56
+# Introduction to OOP's
+
+#Day #57
+# Classes and Objects in Python
+
+# A class is a blueprint or a template for creating objects, providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods). The user-defined objects are created using the class keyword.
+
+# Object is the instance of the class used to access the properties of the class Now lets create an object of the class:-
+
+
+""" class Person:
+    name = "Abhinav"
+    occupation = "Data Engineer"
+    networth = 10
+
+a = Person()
+print(a.name) """
+
+
+# The self parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class.
+
+
+""" 
+class Person:
+    name = "Abhinav"
+    occupation = "Data Engineer"
+    networth = 10
+    # The self parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class.
+    
+    def info(self):
+        print(f"{self.name} is a {self.occupation}")
+
+a = Person()
+a.name = 'Abhishek'
+a.occupation = 'Accountant'
+# print(a.name ,a.occupation)
+a.info()
+
+b = Person()
+b.name = 'Anuarag'
+b.occupation = 'HR'
+b.info()
+
+
+# c will get the default values from the class
+c = Person()
+c.info() """
+
+# Day #58
+
+# Constructors in Python
+
+# Special method in a class to create and initialize objects of a class
+# It is invoked automatically when object of a class is created
+
+# Init is a keyword which act as a constructor 
+# We can create constructor by defining the function with same class name.
+
+# Default constructor - constructor with only self as args
+
+""" class Person:
+    name = "Abhinav"
+    occ = "Developer"
+
+    def __init__(self,n,o):
+        print("Hey I am a Person")
+        self.name = n
+        self.occ = o
+
+    # def __init__(self):
+    #     print("This is a class about a Person !!")
+
+    def info(self):
+        print(f"{self.name} is a {self.occ}")
+
+
+a = Person("Abhinav","Data Engineer")
+b = Person("Akash","Software Engineer")
+a.info()
+b.info() """
+# a.name = "Kushagra"
+# a.occ = "HR"
+# a.info()
+
+
+# Decorators in Python
+
+# It is used to modify the behaviour of a function or  methods
+# It takes another function as an argument and returns a new func that modify the  behaviour of the original func
+# Used to add funcionality to a function or method such as logging, memoization and access control
+
+""" def greet(fx):
+    def mfx():
+        print("Good Morning")
+        fx()
+        print("Thanks for using this function !!")
+
+    return mfx
+
+# @greet or greet(hello)()
+
+@greet
+def hello():
+    print("This is hello function")
+
+
+hello() """
+
+
+
+# passing function and arguments to the decorator
+
+""" 
+def greet(fx):
+    def mfx(*args, **kwargs):
+        print("Good Morning ")
+        fx(*args,**kwargs)
+        print("Thanks for using this function !!")
+    return mfx
+
+@greet
+def add(a,b):
+    print(a+b)
+
+# greet(add)(1,2)
+
+add(1,2) """
+
+# Day #60
+
+# Getters and Setters in Python
+
+# Getter
+
+""" class MyClass:
+    def __init__(self,value):
+        self._value = value
+
+    def show(self):
+        print(f"Value is {self._value}")
+
+    @property
+    def ten_value(self):
+        return 10 * self._value
+    
+obj = MyClass(10)
+print(obj.ten_value)
+obj.show() """
+
+
+#Getter
+#A getter is a method that allows you to access the value of a private attribute. It is defined using the @property decorator. The getter method typically returns the value of the private attribute
+
+
+""" class MyClass:
+    def __init__(self, value):
+        self._value = value  # Private attribute
+
+    @property
+    def value(self):
+        return self._value  # Getter method
+
+# Usage
+obj = MyClass(10)
+print(obj.value)  # Accesses the value using the getter """
+
+# Setter
+
+""" class MyClass:
+    def __init__(self,value):
+        self._value = value
+
+    def show(self):
+        print(f"Value is {self._value}")
+
+
+    @property
+    def ten_value(self):
+        return 10 * self._value
+    
+    @ten_value.setter
+    def ten_value(self,new_value):
+        self._value = new_value/10
+
+
+obj = MyClass(10)
+obj.ten_value = 67
+print(obj.ten_value)
+obj.show() """
+
+
+#Setter
+# A setter is a method that allows you to modify the value of a private attribute. It is defined using the @<property_name>.setter decorator. The setter method typically takes a parameter representing the new value and updates the private attribute.
+""" 
+class MyClass:
+    def __init__(self, value):
+        self._value = value  # Private attribute
+
+    @property
+    def value(self):
+        return self._value  # Getter method
+
+    @value.setter
+    def value(self, new_value):
+        self._value = new_value  # Setter method
+
+# Usage
+obj = MyClass(10)
+obj.value = 20  # Modifies the value using the setter
+print(obj.value)  # Accesses the updated value using the getter """
+
+
+# Benefits of Using Getters and Setters
+# Encapsulation: They encapsulate the internal representation of an attribute, allowing changes to the attribute's implementation without affecting the external interface.
+
+# Validation: Setters can include validation logic to ensure that only valid data is assigned to an attribute.
+
+# Read-Only Properties: By providing only a getter and no setter, you can create read-only properties.
+
+# Computed Properties: Getters can compute a value on-the-fly based on other attributes, providing a dynamic view of the object's state.
+
+
+#Day #61
+
+# Inheritance in Python
+
 

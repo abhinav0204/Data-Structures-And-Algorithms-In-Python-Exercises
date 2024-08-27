@@ -782,6 +782,7 @@ import math
  
  
 # function for finding roots
+
 def equationroots( a, b, c): 
  
     dis = b*b - 4*(a*c)
