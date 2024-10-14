@@ -2374,5 +2374,79 @@ print(obj.value)  # Accesses the updated value using the getter """
 #Day #61
 
 # Inheritance in Python
+""" 
+class Employee:
+    def __init__(self,name1,id1):
+        self.name = name1
+        self.id = id1
 
+    def showDetails(self):
+        print(f"The name of Employee : {self.id} is {self.name}")
+
+
+class Programmer(Employee):
+    def showLanguage(self):
+        print("The default language is Python")
+
+e = Employee("Rohan Das",420)
+e.showDetails()
+e = Programmer("Abhinav Suman",5257)
+e.showDetails()
+e.showLanguage()
+ """
+
+ # Access modifier day 63
+
+# three types of aceess modifiers - public,private,protected
+
+# all variables in python are public -- by default
+
+# private variable - represented by double underscore - __
+""" 
+class Employees:
+    def __init__(self):
+        self.__name = "Abhinav"
+
+a = Employees()
+# print(a.__name) # private variable cannot be accessed directly
+
+print(a._Employees__name) # but private variables can be accessed indirectly - name mangling
+
+print(a.__dir__()) # print all atributes and methods of class for which we have object a
+
+ """
+
+c""" lass Student:
+    def __init__(self):
+        self._name = "Abhinav"
+
+    def _funName(self):
+        # protected method
+        return "Abhinav is a good coder"
+
+
+class Subject(Student):
+    # inherited class
+    pass
+
+
+obj = Student()
+obj1 = Student()
+
+# calling by obect of student class
+
+print(obj._name)
+print(obj._funName()) 
+
+print(dir(obj)) # print all atributes and methods of class for which we have object a
+
+
+# calling by obect of Subject class
+
+print(obj1._name)
+print(obj1._funName()) """
+
+# Day #63
+
+# Snake Water Gun Game in Python
 
