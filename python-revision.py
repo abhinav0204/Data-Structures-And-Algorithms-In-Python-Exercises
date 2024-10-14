@@ -2416,7 +2416,7 @@ print(a.__dir__()) # print all atributes and methods of class for which we have 
 
  """
 
-c""" lass Student:
+""" lass Student:
     def __init__(self):
         self._name = "Abhinav"
 
@@ -2449,4 +2449,6 @@ print(obj1._funName()) """
 # Day #63
 
 # Snake Water Gun Game in Python
+
+import random
 
